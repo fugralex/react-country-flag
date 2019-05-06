@@ -17,7 +17,14 @@ export default class ReactCountryFlag extends Component {
     };
 
     render() {
-        const { cdnUrl, code, styleProps, svg, title } = this.props;
+        const {
+            cdnUrl,
+            code,
+            styleProps,
+            svg,
+            title,
+            withoutTitle
+        } = this.props;
 
         const flagUrl = `${cdnUrl}${code.toLowerCase()}.svg`;
         const emoji = code
@@ -44,7 +51,7 @@ export default class ReactCountryFlag extends Component {
                     verticalAlign: "middle",
                     ...styleProps
                 }}
-                title={title || code}
+                title={withoutTitle ? "" : title || code}
             />
         ) : (
             <span
